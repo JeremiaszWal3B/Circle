@@ -5,31 +5,58 @@
     <title>Dodawanie</title>
 </head>
 <body>
-    Liczba 1
-    <input id="num1" type="number">
+    Współrzędna x środka koła 1
+    <input id="S1x" type="number">
     <br>
-    Liczba 2
-    <input id="num2" type="number">
+    Współrzędna y środka koła 1
+    <input id="S1y" type="number">
+    <br>
+    Współrzędna x środka koła 2
+    <input id="S2x" type="number">
+    <br>
+    Współrzędna y środka koła 2
+    <input id="S2y" type="number">
+    <br>
+    Promień koła 1
+    <input id="r1" type="number">
+    <br>
+    Promień koła 2
+    <input id="r2" type="number">
     <br>
 
-    <button id="submit">Suma</button>
+    <button>Oblicz</button>
     <br>
-
-    Wynik
-    <p></p>
 
     <script>
-        const num1 = document.getElementById('num1');
-        const num2 = document.getElementById('num2');
+        const S1x = document.getElementById('S1x');
+        const S1y = document.getElementById('S1y');
+        const S2x = document.getElementById('S2x');
+        const S2y = document.getElementById('S2y');
+        const r1 = document.getElementById('r1');
+        const r2 = document.getElementById('r2');
         const button = document.querySelector('button');
-        const p = document.querySelector('p');
-        
-        function suma() {
-            const sum = parseInt(num1.value)+parseInt(num2.value);
-            p.innerText = sum;
+
+        const s1s2 = Math.sqrt(Math.pow((S2x - S1x),2) + Math.pow((S2y - S1y),2));
+        const o1 =;
+        const o2 =;
+
+        function calculate() {
+            if (s1s2>r1+r2) {
+                document.write('Okręgi zewnętrzne względem siebie')
+            } else if (s1s2==r1+r2) {
+                document.write('Okręgi zewnętrznie styczne')
+            } else if (Math.abs(r1-r2)<s1s2<r1+r2) {
+                document.write('Okręgi przecinające się w dwóch punktach')
+            } else if (s1s2==Math.abs(r1-r2)) {
+                document.write('Okręgi styczne wewnętrznie')
+            }else if (0<s1s2<Math.abs(r1-r2)) {
+                document.write('Okręgi wewnętrzen ale nie wyśrodkowe')
+            } else if (s1s2==0) {
+                document.write('Okręgi współśrodkowe')
+            }
         }
         
-        button.addEventListener('click', suma);
+        button.addEventListener('click');
         </script>
 </body>
 </html>
