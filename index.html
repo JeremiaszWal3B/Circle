@@ -42,17 +42,17 @@
 
         function calculate() {
             if (s1s2>r1+r2) {
-                document.write('Okręgi zewnętrzne względem siebie')
+                document.write("<p>Okręgi zewnętrzne względem siebie</p>")
             } else if (s1s2==r1+r2) {
-                document.write('Okręgi zewnętrznie styczne')
+                document.write("<p>Okręgi zewnętrznie styczne</p>")
             } else if (Math.abs(r1-r2)<s1s2<r1+r2) {
-                document.write('Okręgi przecinające się w dwóch punktach')
+                document.write("<p>Okręgi przecinające się w dwóch punktach</p>")
             } else if (s1s2==Math.abs(r1-r2)) {
-                document.write('Okręgi styczne wewnętrznie')
+                document.write("<p>Okręgi styczne wewnętrznie</p>")
             }else if (0<s1s2<Math.abs(r1-r2)) {
-                document.write('Okręgi wewnętrzen ale nie wyśrodkowe')
+                document.write("<p>Okręgi wewnętrzen ale nie wyśrodkowe</p>)
             } else if (s1s2==0) {
-                document.write('Okręgi współśrodkowe')
+                document.write("<p>Okręgi współśrodkowe</p>")
             }
         }
         
