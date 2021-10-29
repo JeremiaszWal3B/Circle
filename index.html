@@ -38,7 +38,7 @@
 
         const s1s2 = Math.sqrt(Math.pow((parseInt(S2x.value) - parseInt(S1x.value)),2) + Math.pow((parseInt(S2y.value) - parseInt(S1y.value)),2));
 
-        function calculate() {
+        /*function calculate() {
             if (parseInt(s1s2.value)>parseInt(r1.value)+parseInt(r2.value)) {
                 document.write("<p>Okręgi zewnętrzne względem siebie</p>")
             } else if (parseInt(s1s2.value)==parseInt(r1.value)+parseInt(r2.value)) {
@@ -52,9 +52,23 @@
             } else if (parseInt(s1s2.value)==0) {
                 document.write("<p>Okręgi współśrodkowe</p>")
             }
-        }
+        }*/
         
-        button.addEventListener('click', calculate);
+        button.addEventListener('click', function() {
+            if (parseInt(s1s2.value)>parseInt(r1.value)+parseInt(r2.value)) {
+                document.write("<p>Okręgi zewnętrzne względem siebie</p>")
+            } else if (parseInt(s1s2.value)==parseInt(r1.value)+parseInt(r2.value)) {
+                document.write("<p>Okręgi zewnętrznie styczne</p>")
+            } else if (Math.abs(parseInt(r1.value)-parseInt(r2.value))<parseInt(s1s2.value)<parseInt(r1.value)+parseInt(r2.value)) {
+                document.write("<p>Okręgi przecinające się w dwóch punktach</p>")
+            } else if (parseInt(s1s2.value)==Math.abs(parseInt(r1.value)-parseInt(r2.value))) {
+                document.write("<p>Okręgi styczne wewnętrznie</p>")
+            }else if (0<parseInt(s1s2.value)<Math.abs(parseInt(r1.value)-parseInt(r2.value))) {
+                document.write("<p>Okręgi wewnętrzen ale nie współśrodkowe</p>")
+            } else if (parseInt(s1s2.value)==0) {
+                document.write("<p>Okręgi współśrodkowe</p>")
+            }
+        });
         button.addEventListener('click', console.log('click'));
         </script>
 </body>
