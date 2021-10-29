@@ -27,6 +27,7 @@
     <button>Oblicz</button>
     <br>
 
+    <p></p>
     <script>
         const S1x = document.getElementById('S1x');
         const S1y = document.getElementById('S1y');
@@ -35,6 +36,7 @@
         const r1 = document.getElementById('r1');
         const r2 = document.getElementById('r2');
         const button = document.querySelector('button');
+        const p = document.querySelector('p');
 
         const s1s2 = Math.sqrt(Math.pow((parseInt(S2x.value) - parseInt(S1x.value)),2) + Math.pow((parseInt(S2y.value) - parseInt(S1y.value)),2));
 
@@ -56,17 +58,17 @@
         
         button.addEventListener('click', function() {
             if (parseInt(s1s2.value)>parseInt(r1.value)+parseInt(r2.value)) {
-                document.write("<p>Okręgi zewnętrzne względem siebie</p>")
+                p.innerText="Okręgi zewnętrzne względem siebie"
             } else if (parseInt(s1s2.value)==parseInt(r1.value)+parseInt(r2.value)) {
-                document.write("<p>Okręgi zewnętrznie styczne</p>")
+                p.innerText="Okręgi zewnętrznie styczne"
             } else if (Math.abs(parseInt(r1.value)-parseInt(r2.value))<parseInt(s1s2.value)<parseInt(r1.value)+parseInt(r2.value)) {
-                document.write("<p>Okręgi przecinające się w dwóch punktach</p>")
+                p.innerText="Okręgi przecinające się w dwóch punktach"
             } else if (parseInt(s1s2.value)==Math.abs(parseInt(r1.value)-parseInt(r2.value))) {
-                document.write("<p>Okręgi styczne wewnętrznie</p>")
+                p.innerText="Okręgi styczne wewnętrznie"
             }else if (0<parseInt(s1s2.value)<Math.abs(parseInt(r1.value)-parseInt(r2.value))) {
-                document.write("<p>Okręgi wewnętrzen ale nie współśrodkowe</p>")
+                p.innerText="Okręgi wewnętrzen ale nie współśrodkowe"
             } else if (parseInt(s1s2.value)==0) {
-                document.write("<p>Okręgi współśrodkowe</p>")
+                p.innerText="Okręgi współśrodkowe"
             }
         });
         button.addEventListener('click', console.log('click'));
