@@ -36,20 +36,20 @@
         const r2 = document.getElementById('r2');
         const button = document.querySelector('button');
 
-        const s1s2 = Math.sqrt(Math.pow((S2x - S1x),2) + Math.pow((S2y - S1y),2));
+        const s1s2 = Math.sqrt(Math.pow((S2x.value - S1x.value),2) + Math.pow((S2y.value - S1y.value),2));
 
         function calculate() {
-            if (s1s2>r1+r2) {
+            if (s1s2.value>r1.value+r2.value) {
                 document.write("<p>Okręgi zewnętrzne względem siebie</p>")
-            } else if (s1s2==r1+r2) {
+            } else if (s1s2.value==r1.value+r2.value) {
                 document.write("<p>Okręgi zewnętrznie styczne</p>")
-            } else if (Math.abs(r1-r2)<s1s2<r1+r2) {
+            } else if (Math.abs(r1.value-r2.value)<s1s2.value<r1.value+r2.value) {
                 document.write("<p>Okręgi przecinające się w dwóch punktach</p>")
-            } else if (s1s2==Math.abs(r1-r2)) {
+            } else if (s1s2.value==Math.abs(r1.value-r2.value)) {
                 document.write("<p>Okręgi styczne wewnętrznie</p>")
-            }else if (0<s1s2<Math.abs(r1-r2)) {
+            }else if (0<s1s2.value<Math.abs(r1.value-r2.value)) {
                 document.write("<p>Okręgi wewnętrzen ale nie współśrodkowe</p>")
-            } else if (s1s2==0) {
+            } else if (s1s2.value==0) {
                 document.write("<p>Okręgi współśrodkowe</p>")
             }
         }
